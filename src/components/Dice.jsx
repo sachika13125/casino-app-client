@@ -69,11 +69,11 @@ export default function Dice() {
         <div>
             <h1 className='text-white'>Dice Prediction Game</h1>
             <div id="rewards-container" className="bg-gray-100 p-4 rounded-lg mb-4"></div>
-            <div id="game" className="bg-white p-4 rounded-lg shadow-lg">
-                <p>Remaining Guesses: <span id="remaining-guesses">10</span></p>
-                <p>Score: <span id="score">0</span></p>
-                <p>Previous Roll: {previousRoll !== null ? <img src={`/images/dice${previousRoll}.png`} alt={`Dice Roll ${previousRoll}`} className='w-1/4 text-center' /> : "-"}</p>                
-                <label for="guess" className="block text-gray-700 text-sm font-bold mb-2">Enter your guess (1-6):</label>
+            <div id="game" className="p-4 rounded-lg shadow-lg">
+                <p className='text-white'>Remaining Guesses: <span id="remaining-guesses">10</span></p>
+                <p className='text-white'>Score: <span id="score">0</span></p>
+                <p className='text-white'>Previous Roll: {previousRoll !== null ? <img src={`/images/dice${previousRoll}.png`} alt={`Dice Roll ${previousRoll}`} className='w-1/4 text-center' /> : "-"}</p>                
+                <label for="guess" className="block text-white text-sm font-bold mb-2">Enter your guess (1-6):</label>
                 <input type="number" id="guess" min="1" max="6" className="block w-full p-2 border rounded-md" />
                 <div className='flex justify-around'>
                 <button id="roll-button" onClick={rollDice} className="flex justify-center items-center shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Roll</button>                    
