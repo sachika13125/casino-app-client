@@ -1,0 +1,45 @@
+#dealer-cards, #your-cards {
+    display: flex;
+}
+
+#dealer-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 2px;
+}
+
+#your-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 3px;
+}
+
+.blackjack-buttons {
+    padding: 50px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#results {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#restart {
+    font-size: 1.5rem;
+}
+
+/* MODAL */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blackjack-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
