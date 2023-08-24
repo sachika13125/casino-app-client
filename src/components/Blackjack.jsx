@@ -16,7 +16,6 @@ export default function Blackjack() {
     useEffect(() => {
         buildDeck();
         shuffleDeck();
-        startGame();
     }, []);
 
     return (
