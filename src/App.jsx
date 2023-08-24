@@ -2,6 +2,7 @@
 import './App.css'
 // import Header from './components/Header'
 import Container from './components/Container'
+import UserProfile from './components/UserProfile'
 // import Footer from './components/Footer'
 
 
@@ -12,6 +13,7 @@ function App() {
     <div>
       {/* <Header /> */}
       <Container />
+      <UserProfile/>
       {/* <Footer /> */}
     </div>
   )
