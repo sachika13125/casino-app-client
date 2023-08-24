@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from './Button';
 
 export default function Dice() {
 
@@ -66,27 +67,14 @@ export default function Dice() {
                         onChange={event => setGuess(event.target.value)} 
                         className="block w-full p-2 border rounded-md w-1/6 mx-auto mb-4" />
                 <div className='flex justify-around'>
-                <button id="roll-button" 
+                <Button label="Roll" 
                         onClick={handleRollClick} 
-                        className="flex justify-center items-center shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Roll</button>                    
-                <button id="reset-button" 
+                        className="bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white" />                   
+                <Button label="Reset" 
                         onClick={handleResetClick}
-                        className="flex justify-center items-center shadow font-bold py-2 px-4 rounded">Reset</button>
+                        className="" />
                 </div>
               </div>
         </div>
     )
 }
-
-
-
-
-//   const updateScore = () => {
-//     fetch('/getDiceRewards')
-//       .then(response => response.json())
-//       .then(data => {
-//         const scoreFromServer = data.length > 0 ? data[0].reward : 0;
-//         setScores(scores + scoreFromServer);
-//       })
-//       .catch(error => console.error('Error fetching score:', error));
-//   };
