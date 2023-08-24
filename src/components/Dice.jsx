@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Dice() {
 
@@ -7,6 +7,16 @@ export default function Dice() {
   const [gameOver, setGameOver] = useState(false);
   const [previousRoll, setPreviousRoll] = useState(null);
   const [score, setScore] = useState(0);
+  const [rewardsData, setRewardsData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/getDiceRewards')
+      .then(response => response.json())
+      .then(data => {
+        setRewardsData(data);
+      })
+      .catch(error => console.error("Error fetching rewards:", error));
+  }, []);
 
   const updateRemainingGuesses = () => setRemainingGuesses(remainingGuesses - 1);
 
@@ -21,7 +31,10 @@ export default function Dice() {
       const roll = rollDice();
       console.log(guess)
       if (parseInt(guess) === roll) {
-        setScore(score + 20);
+        const reward = rewardsData.find(reward => reward.number === roll);
+        if (reward) {
+          setScore(score + reward.reward);
+        }
       }
       updateRemainingGuesses();
       if (remainingGuesses === 1) {
@@ -37,16 +50,6 @@ export default function Dice() {
     setGuess('');
     setGameOver(false);
   };
-
-//   const updateScore = () => {
-//     fetch('/getDiceRewards')
-//       .then(response => response.json())
-//       .then(data => {
-//         const scoreFromServer = data.length > 0 ? data[0].reward : 0;
-//         setScores(scores + scoreFromServer);
-//       })
-//       .catch(error => console.error('Error fetching score:', error));
-//   };
 
 
     return(
@@ -74,3 +77,16 @@ export default function Dice() {
         </div>
     )
 }
+
+
+
+
+//   const updateScore = () => {
+//     fetch('/getDiceRewards')
+//       .then(response => response.json())
+//       .then(data => {
+//         const scoreFromServer = data.length > 0 ? data[0].reward : 0;
+//         setScores(scores + scoreFromServer);
+//       })
+//       .catch(error => console.error('Error fetching score:', error));
+//   };
