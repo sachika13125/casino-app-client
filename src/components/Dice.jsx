@@ -50,6 +50,7 @@ export default function Dice() {
             console.error('Error al actualizar los tickets:', error);
           });
         }
+        // setScore(score + 20);
       }
       updateRemainingGuesses();
       if (remainingGuesses === 1) {
