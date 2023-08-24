@@ -12,6 +12,7 @@ function App() {
     <div>
       {/* <Header /> */}
       <Container />
+      <h1>Test</h1>
       {/* <Footer /> */}
     </div>
   )
