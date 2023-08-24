@@ -1,8 +1,20 @@
-# React + Vite
+Blackjack Game
+    Players aim to achieve a hand value close to 21 without exceeding it.
+    Options include "hit" for additional cards or "stand" to keep the current hand.
+    The player with the hand closest to 21 wins, factoring in dealer behavior and Ace values.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dice Game
+    Players predict the outcome of a dice roll.
+    After placing a guess, the dice are rolled, and results are compared.
+    Correct predictions lead to rewards, while incorrect ones challenge players to refine their strategy.
+    Our project demonstrates proficiency in various technical aspects:
 
-Currently, two official plugins are available:
+Server Setup: We are utilizing Node.js and Express to set up the server, managing routes, and handling client requests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Client-side Rendering: Our web app is now a Single Page Application (SPA) thanks to React. This means that content updates dynamically using JavaScript, providing a seamless user experience.
+
+File Handling: The server reads data from both JSON and CSV files, enhancing game functionality and player experience.
+
+HTTP Methods: We utilize HTTP methods like GET, POST, PUT, and PATCH to manipulate and retrieve data from the server.
+
+CORS Configuration: Cross-Origin Resource Sharing (CORS) is configured to enable secure interactions between the client and server.
