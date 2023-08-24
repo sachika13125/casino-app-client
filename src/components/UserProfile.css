@@ -1,0 +1,19 @@
+.user-profile {
+position: fixed;
+top: 100px;
+right: 100px;
+background-color: #000000;
+border: 1px solid #ccc;
+padding: 3rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+font-size: 1.5rem;
+}
+
+.profile-details {
+text-align: center;
+}
+
+.user-info p {
+margin: 5px 0;
+}

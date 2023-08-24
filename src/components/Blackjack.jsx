@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Blackjack.css';
+import UserProfile from './UserProfile';
 import {
     buildDeck,
     shuffleDeck,
@@ -9,14 +10,25 @@ import {
     reduceAce,
     restartGame,
     getValue,
-    checkAce
+    checkAce,
+    checkGameResult
 } from './BlackjackLogic';
 
 export default function Blackjack() {
+    const [stayClicked, setStayClicked] = useState(false);
+    const [userData, setUserData] = useState(null);
+
     useEffect(() => {
         buildDeck();
         shuffleDeck();
+        startGame();
+        restartGame();
     }, []);
+
+    function handleStayClick() {
+        stay();
+        setStayClicked(true);
+    }
 
     return (
         <div className='modal'>
@@ -30,10 +42,11 @@ export default function Blackjack() {
                 <div className='blackjack-buttons'>
                     <button id="hit" onClick={hit}>Hit</button>
                     <button id="restart" onClick={restartGame}>&#8634;</button>
-                    <button id="stay" onClick={stay}>Stay</button>
+                    <button id="stay" onClick={handleStayClick}>Stay</button>
                 </div>
+                <UserProfile shouldUpdateProfile={stayClicked} />
                 <p id="results"></p>
             </div>
         </div>
-    )
+    );
 }

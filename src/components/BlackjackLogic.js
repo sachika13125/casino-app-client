@@ -9,13 +9,6 @@ let deck;
 
 let canHit = true; //while yourSum <= 21
 
-window.onload = function() {
-    buildDeck();
-    shuffleDeck();
-    startGame();
-    document.getElementById("restart").addEventListener("click", restartGame);
-}
-
 function buildDeck() {
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let types = ["C", "D", "H", "S"];
@@ -87,6 +80,7 @@ function hit() {
 
     if (reduceAce(yourSum, yourAceCount) > 21) {
         canHit = false;
+        checkGameResult(false);
     }
 
 }
@@ -101,24 +95,55 @@ function stay() {
     let message = "";
     if (yourSum > 21) {
         message = "You Lose!";
+        checkGameResult(false);
     }
     else if (dealerSum > 21) {
         message = "You win!";
+        checkGameResult(true);
     }
     else if (yourSum == dealerSum) {
         message = "Tie!";
     }
     else if (yourSum > dealerSum) {
         message = "You Win!";
+        checkGameResult(true);
     }
     else if (yourSum < dealerSum) {
         message = "You Lose!";
+        checkGameResult(false);
     }
 
     document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("your-sum").innerText = yourSum;
     document.getElementById("results").innerText = message;
 }
+
+//POST METHOD TO WRITE USER TICKETS TO JSON FILE
+function checkGameResult(playerWin) {
+    const resultMessage = playerWin ? "win" : "lose";
+  
+    //writeGameResultToCSV(resultMessage);
+  
+    fetch('http://localhost:3000/updateTickets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ result: resultMessage, username: 'player' })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("Error requesting fetch: ", error);
+      });
+  }
 
 function getValue(card) {
     let data = card.split("-");
@@ -190,6 +215,7 @@ export {
     getValue,
     checkAce,
     reduceAce,
+    checkGameResult
 };
 
 
