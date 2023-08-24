@@ -45,13 +45,13 @@ export default function Dice() {
     return(
         <div>
             <h1 className='text-white'>Dice Prediction Game</h1>
-            <div id="rewards-container" className="bg-gray-100 p-4 rounded-lg mb-4"></div>
+            <div id="rewards-container" className="bg-gray-100 p-4 rounded-lg mb-4 w-1/2 mx-auto"></div>
             <div id="game" className="p-4 rounded-lg shadow-lg">
                 <p className='text-white'>Remaining Guesses: <span id="remaining-guesses">{remainingGuesses}</span></p>
                 <p className='text-white'>Score: <span id="score">0</span></p>
-                <p className='text-white'>Previous Roll: {previousRoll !== null ? <img src={`/images/dice${previousRoll}.png`} alt={`Dice Roll ${previousRoll}`} className='w-1/4 text-center' /> : "-"}</p>                
+                <p className='text-white flex justify-center items-center'>Previous Roll: {previousRoll !== null ? <img src={`/images/dice${previousRoll}.png`} alt={`Dice Roll ${previousRoll}`} className='w-1/4 text-center' /> : "-"}</p>                
                 <label htmlFor="guess" className="block text-white text-sm font-bold mb-2">Enter your guess (1-6):</label>
-                <input type="number" id="guess" min="1" max="6" className="block w-full p-2 border rounded-md" />
+                <input type="number" id="guess" min="1" max="6" className="block w-full p-2 border rounded-md w-1/2 mx-auto mb-4" />
                 <div className='flex justify-around'>
                 <button id="roll-button" 
                         onClick={handleRollClick} 
