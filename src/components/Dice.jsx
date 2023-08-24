@@ -36,6 +36,7 @@ export default function Dice() {
         if (reward) {
           setScore(score + reward.reward);
         }
+        // setScore(score + 20);
       }
       updateRemainingGuesses();
       if (remainingGuesses === 1) {
