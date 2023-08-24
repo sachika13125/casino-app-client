@@ -1,13 +1,14 @@
 .user-profile {
 position: fixed;
-top: 100px;
-right: 100px;
-background-color: #000000;
+top: 15%;
+right: 5%;
+background-color: white;
+color: black;
 border: 1px solid #ccc;
-padding: 3rem;
+padding: 2rem;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-border-radius: 4px;
-font-size: 1.5rem;
+border-radius: 40px;
+font-size: 1.3rem;
 }
 
 .profile-details {

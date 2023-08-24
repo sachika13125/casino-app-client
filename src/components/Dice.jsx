@@ -35,6 +35,20 @@ export default function Dice() {
         const reward = rewardsData.find(reward => reward.number === roll);
         if (reward) {
           setScore(score + reward.reward);
+          fetch('http://localhost:3000/updateUserTickets', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ tickets: score + reward.reward }),
+        })
+          .then(response => response.text())
+          .then(data => {
+            console.log('Tickets actualizados:', data);
+          })
+          .catch(error => {
+            console.error('Error al actualizar los tickets:', error);
+          });
         }
       }
       updateRemainingGuesses();

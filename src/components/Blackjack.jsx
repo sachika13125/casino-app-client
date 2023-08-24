@@ -32,6 +32,7 @@ export default function Blackjack() {
 
     return (
         <div className='modal'>
+            <h1 className='text-white'>Blackjack Game</h1>
             <div id="blackjack-game" className="blackjack-game">
                 <h2>Dealer: <span id="dealer-sum"></span></h2>
                 <div id="dealer-cards">
