@@ -80,7 +80,7 @@ export default function Dice() {
                 <label htmlFor="guess" className="block text-white text-sm font-bold mb-2">Enter your guess (1-6):</label>
                 <input type="number" id="guess" min="1" max="6" value={guess}
                         onChange={event => setGuess(event.target.value)} 
-                        className="block w-full p-2 border rounded-md w-1/6 mx-auto mb-4" />
+                        className="block w-[300px] p-2 border rounded-md w-1/6 mx-auto mb-4" />
                 <div className='flex justify-around'>
                 <Button label="Roll" 
                         onClick={handleRollClick} 

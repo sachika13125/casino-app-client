@@ -7,11 +7,7 @@ import {
     startGame,
     hit,
     stay,
-    reduceAce,
     restartGame,
-    getValue,
-    checkAce,
-    checkGameResult
 } from './BlackjackLogic';
 
 export default function Blackjack() {
